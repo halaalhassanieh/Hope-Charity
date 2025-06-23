@@ -15,10 +15,13 @@ export default {
         "gray/600": "#6C757D",
       },
       screens: {
+
         // Desktop Screen :
-        "custom-2xl": "1440px",
+        "custom-3xl": "1920px",
         // Laptop Screen :
-        "custom-xl": "1024px",
+        "custom-2xl": "1440px",
+        //largeScreen
+        "custom-xl": "1068px",
         //Tap Screen :
         "custom-tap":"768px",
         // Mobile Screen :
@@ -54,13 +57,13 @@ export default {
             paddingLeft: "40px",
             paddingRight: "40px",
           },
-          "@media (min-width: 1024px)": {
-            paddingLeft: "50px",
-            paddingRight: "50px",
+          "@media (min-width: 1068px)": {
+            paddingLeft: "56px",
+            paddingRight: "56px",
           },
           "@media (min-width: 1440px)": {
-            paddingLeft: "80px",
-            paddingRight: "80px",
+            paddingLeft: "72px",
+            paddingRight: "72px",
           },
           "@media (min-width: 1920px)": {
             paddingLeft: "0",

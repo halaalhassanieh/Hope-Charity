@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom"
 import NavBar from "../../components/NavBar"
-
+import logo from "/assets/hope_logo.png"
+import { FaBars } from "react-icons/fa";
 
 
 const MainLayout = () => {
     const NavLinkData = [
-        {
+       
+      {
             elementName: "Home",
             path: "/",
         },
@@ -26,19 +28,15 @@ const MainLayout = () => {
             path: "/contactUs",
         },
         {
-            elementName: "Dashboard",
+            elementName:"Dashboard",
             path: "/dashboard",
-        },
-        {
-            elementName: "Donate",
-            path: "/donate",
-        },
+        }
     ]
      
-    const DonateButton = {
+    const LoginButton = {
          
-            elementName: "Donate",
-            path: "/donate",
+            elementName: "Login",
+            path: "/login",
         
     }
   return (
@@ -46,7 +44,7 @@ const MainLayout = () => {
     <div className=" min-h-screen">
       
       <div className="relative">
-        <NavBar  NavLinkData={NavLinkData} />
+        <NavBar icon={<FaBars />} logo={logo} LoginButton={LoginButton}  NavLinkData={NavLinkData} />
         <Outlet />
       </div>
       
@@ -56,3 +54,5 @@ const MainLayout = () => {
 }
 
 export default MainLayout
+
+
