@@ -26,6 +26,7 @@ const NavBar = ({ icon, logo, NavLinkData, LoginButton }) => {
 
                 {/* div contains the main ul and the toggle bars button  */}
                 <div className=" ">
+                    
                     {/* the menu button shows up on screens less than 786px and we use it to toggle the ul menu */}
                     <button className='custom-tap:hidden block text-white/60 text-xl ' onClick={(ToggleNav)}>{icon}</button>
 

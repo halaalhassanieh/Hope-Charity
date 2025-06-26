@@ -3,6 +3,9 @@ export default {
    content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+       backgroundImage: {
+        'hero': "url('/assets/hero.jpg')"
+      },
       borderWidth: {
         1: "1px",
       },
@@ -13,6 +16,7 @@ export default {
         "white/60": "#ffffff99",
         "black/60": "#00000099",
         "gray/600": "#6C757D",
+        "gray/100": "#F8F9FA",
       },
       screens: {
 

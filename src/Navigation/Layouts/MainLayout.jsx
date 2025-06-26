@@ -42,7 +42,6 @@ const MainLayout = () => {
   return (
     
     <div className=" min-h-screen">
-      
       <div className="relative">
         <NavBar icon={<FaBars />} logo={logo} LoginButton={LoginButton}  NavLinkData={NavLinkData} />
         <Outlet />
