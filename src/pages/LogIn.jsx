@@ -25,6 +25,7 @@ const LogIn = () => {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("email", email); // Or use response.data.user.email
       localStorage.setItem("isAdmin", response.data.isAdmin);
+      localStorage.setItem("wallet", response.data.wallet);
       console.log("Login success:", response.data);
       navigate("/dashboard");
     } catch (err) {
