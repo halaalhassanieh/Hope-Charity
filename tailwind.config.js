@@ -18,6 +18,9 @@ export default {
         "gray/600": "#6C757D",
         "gray/100": "#F8F9FA",
       },
+      textShadow: {
+        black:" 3px 3px 8px rgba(0, 0, 0, 0.85)",
+      },
       screens: {
 
         // Desktop Screen :
@@ -40,6 +43,7 @@ export default {
     },
   },
   plugins: [
+    require('tailwindcss-textshadow'),
     function ({ addComponents }) {
       addComponents({
         // Add custom-container Class :

@@ -50,3 +50,22 @@ export const CatCardInfo = [
     subtitle: "Strengthening neighborhoods through opportunity,support,and shared growth.",
 }
 ];
+
+
+export const CausesHead = {
+  page: ">  Causes",
+  title: "Donate Today: Save a Life",
+  subtitle: "Your donation fuels real impact—providing food, water, education, and care to communities in need. Together, we can change lives for the better.",
+};
+
+export const AboutUsHead = {
+  page: ">  About Us",
+  title: "United for Good, Strong for Charity",
+  subtitle: "We are a passionate team dedicated to empowering lives through service, compassion, and sustainable solutions. Discover our mission and how you can be involved.",
+};
+
+export const ContactUsHead = {
+  page: ">  Contact Us",
+  title: "Every Act of Kindness Counts",
+  subtitle: "Have questions, ideas, or want to get involved? Reach out today. Your voice, support, and feedback help shape a better, more compassionate future.",
+};

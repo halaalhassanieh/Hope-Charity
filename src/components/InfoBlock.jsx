@@ -4,7 +4,7 @@ const InfoBlock = ({ sideimg, title, subtitle, lines }) => {
   return (
 
 
-    <div className="custom-container xl:flex block items-center gap-[40px] xl:py-[120px] py-[90px]">
+    <div className="custom-container xl:flex block items-center gap-[40px] xl:py-[120px] py-[90px] font-vietnam">
 
       <div className="w-full flex justify-center items-center">
         <img className="rounded-[20px] xl:w-full w-3/4" src={sideimg} alt="" /></div>
