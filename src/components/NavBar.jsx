@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import ProfileCircle from './ProfileCircle'
 
 const NavBar = ({ icon, logo, NavLinkData, LoginButton }) => {
 
@@ -26,7 +27,7 @@ const NavBar = ({ icon, logo, NavLinkData, LoginButton }) => {
 
                 {/* div contains the main ul and the toggle bars button  */}
                 <div className=" ">
-                    
+
                     {/* the menu button shows up on screens less than 786px and we use it to toggle the ul menu */}
                     <button className='custom-tap:hidden block text-white/60 text-xl ' onClick={(ToggleNav)}>{icon}</button>
 
@@ -50,14 +51,24 @@ const NavBar = ({ icon, logo, NavLinkData, LoginButton }) => {
                 </div>
 
                 {/* div contains the login button */}
-                <div className=''>
-                    <button className='text-white bg-orange/500 rounded-2xl py-1
-                    custom-2xl:px-10 custom-xl:px-8 px-5
-                    custom-xl:font-bold  font-medium
-                    custom-2xl:text-base text-sm 
-                    '
-                        onClick={(OpenLogin)}>
-                        {LoginButton.elementName}</button>
+                <div className='flex items-center gap-4'>
+
+                    {localStorage.getItem("token") ? (
+
+                        // Show profile circle only when logged in
+                        <ProfileCircle />
+                    ) : (
+                        // Show login button only when not logged in
+                        <button
+                            className='text-white bg-orange/500 rounded-2xl py-1
+                 custom-2xl:px-10 custom-xl:px-8 px-5
+                 custom-xl:font-bold font-medium
+                 custom-2xl:text-base text-sm'
+                            onClick={OpenLogin}
+                        >
+                            {LoginButton.elementName}
+                        </button>
+                    )}
                 </div>
             </div>
 
