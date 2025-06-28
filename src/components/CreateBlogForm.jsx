@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const CreateBlogForm = () => {
-
   const token = localStorage.getItem('token');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null); // ✅ New state for image preview
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const CreateBlogForm = () => {
     try {
       const response = await axios.post('/api/blog', formData, {
         headers: {
-            Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
         },
       });
@@ -36,6 +36,7 @@ const CreateBlogForm = () => {
       setTitle('');
       setDescription('');
       setImage(null);
+      setPreviewUrl(null); // ✅ Clear preview
     } catch (error) {
       console.error(error);
       alert('Error creating blog. Please try again.');
@@ -43,13 +44,15 @@ const CreateBlogForm = () => {
   };
 
   return (
-    <div className="  w-full px-12 py-[65px] font-vietnam bg-gray/100 ">
-      <h2 className="text-2xl text-orange/500 font-bold mb-6 pb-4 border-b-4 border-black">📝 Create New Blog</h2>
+    <div className="w-full px-12 py-[65px] font-vietnam bg-gray/100">
+      <h2 className="text-2xl text-orange/500 font-bold mb-6 pb-4 border-b-4 border-black">
+        📝 Create New Blog
+      </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-6 ">
+      <form onSubmit={handleSubmit} className="space-y-1">
         {/* Title */}
         <div>
-          <label className="block text-black font-semibold mb-2">Title</label>
+          <label className="block text-black font-semibold ">Title</label>
           <input
             type="text"
             value={title}
@@ -62,7 +65,7 @@ const CreateBlogForm = () => {
 
         {/* Description */}
         <div>
-          <label className="block text-black font-semibold mb-2">Description</label>
+          <label className="block text-black font-semibold ">Description</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -74,14 +77,29 @@ const CreateBlogForm = () => {
 
         {/* Image Upload */}
         <div>
-          <label className="block text-black font-semibold mb-2">Image</label>
+          <label className="block text-black font-semibold ">Image</label>
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={(e) => {
+              const file = e.target.files[0];
+              setImage(file);
+              if (file) {
+                setPreviewUrl(URL.createObjectURL(file)); // ✅ Show preview
+              } else {
+                setPreviewUrl(null);
+              }
+            }}
             className="w-full p-2 border border-gray/600 rounded-lg"
             required
           />
+          {previewUrl && (
+            <img
+              src={previewUrl}
+              alt="Preview"
+              className="mt-4 rounded-lg shadow-md max-w-xs"
+            />
+          )}
         </div>
 
         {/* Submit */}

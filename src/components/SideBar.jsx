@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import CreateBlogForm from './CreateBlogForm';
 import WalletRechargeRequests from './WalletRechargeRequests';
+import AllBlogs from './AllBlogs';
 // ضل بس الريسبونسيف
 
-// Sample children components
-const CreateBlog = () => <CreateBlogForm/>;
-const WalletRequests = () => <WalletRechargeRequests/>;
-
 const SideBar = () => {
-  const [selectedComponent, setSelectedComponent] = useState('createBlog');
+  const [selectedComponent, setSelectedComponent] = useState('AllBlogs');
 
   const renderContent = () => {
     switch (selectedComponent) {
-      case 'createBlog':
+      case 'AllBlogs':
+        return <AllBlogs/>;
+        case 'createBlog':
         return <CreateBlogForm/>;
-      case 'walletRequests':
+        case 'walletRequests':
         return <WalletRechargeRequests/>;
       default:
         return null;
@@ -29,6 +28,14 @@ const SideBar = () => {
           Admin Control
         </div>
         <nav className="flex flex-col pl-2 pr-4 text-center gap-2">
+          <div className="border-b-2 border-orange/500 px-3 py-7 shadow-lg">
+            <button
+              onClick={() => { setSelectedComponent('AllBlogs'), renderContent()}}
+              className="hover:text-gray/600 border-none font-bold text-black"
+            >
+              All Blogs
+            </button>
+          </div>
           <div className="border-b-2 border-orange/500 px-3 py-7 shadow-lg ">
             <button
               onClick={() => {setSelectedComponent('createBlog'), renderContent()}}
@@ -37,6 +44,7 @@ const SideBar = () => {
               Create Blog
             </button>
           </div>
+          
           <div className="border-b-2 border-orange/500 px-3 py-7 shadow-lg">
             <button
               onClick={() => { setSelectedComponent('walletRequests'), renderContent()}}
