@@ -50,7 +50,7 @@ const NavBar = ({ icon, logo, NavLinkData, LoginButton }) => {
                     </ul>
                 </div>
 
-                {/* div contains the login button */}
+                {/* div contains the login button and profile circle*/}
                 <div className='flex items-center gap-4'>
 
                     {localStorage.getItem("token") ? (

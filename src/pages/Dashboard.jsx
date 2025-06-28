@@ -1,8 +1,9 @@
+import SideBar from "../components/SideBar"
 
 const Dashboard = () => {
   return (
     <div>
-      Dashboard
+      <SideBar/>
     </div>
   )
 }

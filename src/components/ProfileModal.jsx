@@ -19,26 +19,6 @@ const ProfileModal = ({ onClose }) => {
     //  onClose();
   };
 
-//   // fuction to get wallet value
-//   const fetchWallet = async () => {
-//     if (!email&&!token) {
-//       alert("Please login again.");
-//       return;
-//     }
-//     try {
-//       const res = await axios.get(`/api/wallet-requests/${email}`, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       });
-//       console.log(res.data.wallet)
-//       setWallet(res.data.wallet);
-//     } catch (err) {
-//       console.error("Failed to fetch wallet:", err);
-//       alert("Failed to fetch wallet.");
-//     }
-//   };
-
-  // fuction to send request for wallet recharge
- 
 console.log("Sending recharge:", {
   email,
   amount: Number(amount),
@@ -46,6 +26,7 @@ console.log("Sending recharge:", {
   wallet,
 });
 
+ // fuction to send request for wallet recharge
  const handleRecharge = async () => {
   if (!amount || isNaN(amount) || Number(amount) <= "") {
     alert("Please enter a valid amount.");

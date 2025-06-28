@@ -39,9 +39,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 font-vietnam px-4">
-      <div className="custom-container w-full max-w-2xl bg-white p-12 rounded-2xl shadow-custom border border-gray-300">
-        <h2 className="text-4xl font-bold text-center text-orange-500 mb-10">
+    <div className="flex items-center justify-center bg-gray-100 font-vietnam py-4 px-4">
+      <div className="custom-container w-full max-w-2xl bg-white p-9 rounded-2xl shadow-custom border border-gray-300">
+        <h2 className="text-4xl font-bold text-center text-orange-500 mb-8">
           Create Your Account
         </h2>
 
@@ -50,7 +50,7 @@ const SignUp = () => {
           {success && <p className="text-green-600 text-center">{success}</p>}
 
           <div>
-            <label htmlFor="userName" className="block text-gray-600 mb-2 text-xl">
+            <label htmlFor="userName" className="block text-gray-600 mb-1 text-xl">
               Username
             </label>
             <input
@@ -65,7 +65,7 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-gray-600 mb-2 text-xl">
+            <label htmlFor="email" className="block text-gray-600 mb-1 text-xl">
               Email
             </label>
             <input
@@ -76,12 +76,12 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              className="w-full px-6 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-orange-500"
+              className="w-full px-5 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-orange-500"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-gray-600 mb-2 text-xl">
+            <label htmlFor="password" className="block text-gray-600 mb-1 text-xl">
               Password
             </label>
             <input
@@ -92,7 +92,7 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="new-password"
-              className="w-full px-6 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-orange-500"
+              className="w-full px-5 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-orange-500"
             />
           </div>
 
@@ -101,12 +101,12 @@ const SignUp = () => {
             disabled={loading}
             className={`w-full ${
               loading ? "bg-orange-300" : "bg-orange-500 hover:bg-orange-600"
-            } text-white py-4 text-xl rounded-xl transition duration-200 font-semibold`}
+            } text-white py-3 text-xl rounded-xl transition duration-200 font-semibold`}
           >
             {loading ? "Signing Up..." : "Sign Up"}
           </button>
 
-          <p className="text-md text-center text-gray-600 mt-6">
+          <p className="text-md text-center text-gray-600 ">
             Already have an account?{" "}
             <Link to="/login" className="text-orange-500 hover:underline font-medium">
               Login

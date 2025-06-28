@@ -37,7 +37,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 font-vietnam px-4">
+    <div className="flex items-center justify-center bg-gray-100 font-vietnam px-6 py-10">
       <div className="custom-container w-full max-w-2xl bg-white p-12 rounded-2xl shadow-custom border border-gray-300">
         <h2 className="text-4xl font-bold text-center text-orange-500 mb-10">
           Welcome Back
