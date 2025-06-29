@@ -9,21 +9,7 @@ export const Private =
     [{
         element: <Dashboard />,
         path: "/dashboard",
-        children:[
-{
-        element: <SideBar />,
-        children: [
-            {
-                element: <WalletRechargeRequests />,
-                path: "/dashboard/walletrechargerequests",
-            },
-            {
-                element: <CreateBlogForm />,
-                path: "/dashboard/createblogform",
-            },
-        ]
-    },
-        ]
+        
     },
     
     ]

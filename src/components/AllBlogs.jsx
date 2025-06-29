@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import SelectedBlog from './SelectedBlog';
 
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -12,10 +13,12 @@ const AllBlogs = () => {
   const [selectedBlog, setSelectedBlog] = useState(null); // For popup view
 
   const token = localStorage.getItem('token');
-
+  // here is a use effect to bring all data before opening anything
   useEffect(() => {
     fetchBlogs();
   }, []);
+
+  //function to get all blogs using api
 
   const fetchBlogs = async () => {
     try {
@@ -28,6 +31,8 @@ const AllBlogs = () => {
       setLoading(false);
     }
   };
+
+//function to handle the button of delete a one blog only
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this blog?')) return;
@@ -43,7 +48,7 @@ const AllBlogs = () => {
       alert('Failed to delete blog.');
     }
   };
-
+//function to handle the button of deleting all blogs 
   const handleDeleteAll = async () => {
     if (!window.confirm('Are you sure you want to delete all blogs?')) return;
 
@@ -66,6 +71,7 @@ const AllBlogs = () => {
     setUpdatedImage(null);
   };
 
+//function to handle updating blogs 
   const handleUpdate = async () => {
     try {
       const formData = new FormData();
@@ -90,17 +96,20 @@ const AllBlogs = () => {
       alert('Failed to update blog.');
     }
   };
+     //*here is an filter to show the wanted blogs according to search input  
 
   const filteredBlogs = blogs.filter(blog =>
     blog.title.toLowerCase().includes(search.toLowerCase())
   );
 
+   //just a simple condition to show loading blogs while loading 
   if (loading) {
     return <div className="p-8 font-vietnam text-center text-gray/600">Loading blogs...</div>;
   }
 
   return (
-    <div className="p-8 bg-gray/100 font-vietnam">
+
+    <div className="custom-tap:p-8 p-4 bg-gray/100 font-vietnam">
       <div className="flex justify-between items-center mb-6 pb-4 border-b-4 border-black">
         <h2 className="text-2xl text-orange/500 font-bold">📚 All Blogs</h2>
         <button
@@ -118,7 +127,7 @@ const AllBlogs = () => {
         placeholder="Search blogs by title..."
         className="w-full mb-6 p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-orange/500"
       />
-
+     {/*here is a div to show all blogs using map on the filterd blogs  */}
       <div className="grid grid-cols-1 custom-tap:grid-cols-2 custom-xl:grid-cols-3 gap-6">
         {filteredBlogs.map((blog) => (
           <div
@@ -128,17 +137,16 @@ const AllBlogs = () => {
           >
             {blog.image && (
               <img
-                src={`https://hope-lfey.onrender.com/images/${blog.image}`}
+                src={`${blog.image}`}
                 alt={blog.title}
                 className="w-full max-h-60 object-cover rounded-lg mb-4"
               />
             )}
-
+         {/*here is a div to show one blog  */}
             <div>
               <h3 className="text-xl font-bold text-black mb-1">{blog.title}</h3>
               <p className="text-gray/600 mb-2 line-clamp-3">{blog.description}</p>
               <div className="text-sm text-black/60 space-y-1">
-                <p><strong>ID:</strong> {blog._id}</p>
                 <p><strong>Created:</strong> {new Date(blog.createdAt).toLocaleString()}</p>
                 <p><strong>Updated:</strong> {new Date(blog.updatedAt).toLocaleString()}</p>
               </div>
@@ -161,7 +169,7 @@ const AllBlogs = () => {
           </div>
         ))}
       </div>
-
+                 {/*here is popout window to update blog  */}
       {editingBlog && (
         <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
@@ -188,7 +196,6 @@ const AllBlogs = () => {
               onChange={(e) => setUpdatedImage(e.target.files[0])}
               className="w-full mb-4 p-2 border border-gray/600 rounded-lg"
             />
-
             {updatedImage && (
               <img
                 src={URL.createObjectURL(updatedImage)}
@@ -204,36 +211,28 @@ const AllBlogs = () => {
               >Cancel</button>
               <button
                 onClick={handleUpdate}
-                className="px-4 py-2 bg-orange/500 text-white rounded-lg hover:bg-orange-600"
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-orange-600"
               >Save</button>
             </div>
           </div>
         </div>
       )}
 
+              {/*here is component to show selected blog  */}
+
       {selectedBlog && (
+
         <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-xl max-h-[90vh] overflow-y-auto">
-            <h3 className="text-2xl font-bold mb-4 text-orange/500">{selectedBlog.title}</h3>
-            {selectedBlog.image && (
-              <img
-                src={`/uploads/${selectedBlog.image}`}
-                alt={selectedBlog.title}
-                className="w-full h-60 object-cover rounded-lg mb-4"
-              />
-            )}
-            <p className="text-black mb-4 whitespace-pre-wrap">{selectedBlog.description}</p>
-            <div className="text-sm text-black/60 space-y-1 mb-4">
-              <p><strong>ID:</strong> {selectedBlog._id}</p>
-              <p><strong>Created:</strong> {new Date(selectedBlog.createdAt).toLocaleString()}</p>
-              <p><strong>Updated:</strong> {new Date(selectedBlog.updatedAt).toLocaleString()}</p>
-            </div>
+          <div className='bg-white p-6 rounded-xl shadow-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto'>
+            <SelectedBlog title={selectedBlog.title} image={selectedBlog.image} description={selectedBlog.description}
+              createdAt={selectedBlog.createdAt} updatedAt={selectedBlog.updatedAt} />
             <button
               onClick={() => setSelectedBlog(null)}
               className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
             >Close</button>
           </div>
         </div>
+
       )}
     </div>
   );

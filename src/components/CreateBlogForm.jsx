@@ -44,7 +44,7 @@ const CreateBlogForm = () => {
   };
 
   return (
-    <div className="w-full px-12 py-[65px] font-vietnam bg-gray/100">
+    <div className="w-full custom-tap:px-12 px-1 custom-tap:py-[65px] py-4 font-vietnam bg-gray/100">
       <h2 className="text-2xl text-orange/500 font-bold mb-6 pb-4 border-b-4 border-black">
         📝 Create New Blog
       </h2>
@@ -85,7 +85,7 @@ const CreateBlogForm = () => {
               const file = e.target.files[0];
               setImage(file);
               if (file) {
-                setPreviewUrl(URL.createObjectURL(file)); // ✅ Show preview
+                setPreviewUrl(URL.createObjectURL(file)); 
               } else {
                 setPreviewUrl(null);
               }

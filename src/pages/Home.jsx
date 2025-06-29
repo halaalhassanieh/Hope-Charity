@@ -4,6 +4,7 @@ import { heroInfo,hero2Info,CatCardInfo } from '../constants/Constants.jsx'
 import InfoBlock from '../components/InfoBlock'
 import sideimg from"/assets/sideimg.jpeg"
 import HomeCatCard from '../components/HomeCatCard'
+import LatestNews from '../components/LatestNews.jsx'
 
 
 
@@ -30,6 +31,7 @@ const Home = () => {
             
          </div>
       </div>
+       <LatestNews/>
     </div>
   )
 }
