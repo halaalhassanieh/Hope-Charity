@@ -23,8 +23,8 @@ const MainLayout = () => {
       path: "/causes",
     },
     {
-      elementName: "Single Cause",
-      path: "/causes/:id",
+      elementName: "News",
+      path: "/news",
     },
     {
       elementName: "About Us",

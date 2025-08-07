@@ -2,7 +2,7 @@ import AboutUs from "../../pages/AboutUs";
 import Causes from "../../pages/Causes";
 import ContactUs from "../../pages/ContactUs";
 import Home from "../../pages/Home";
-import SingleCause from "../../pages/SingleCause";
+import News from "../../pages/News";
 
 export const Public = [
   {
@@ -14,8 +14,8 @@ export const Public = [
     path: "/causes",
   },
   {
-    element: <SingleCause />,
-    path: "/causes/:id",
+    element: <News />,
+    path: "/news",
   },
 
   {

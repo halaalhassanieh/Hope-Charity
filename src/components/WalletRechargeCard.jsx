@@ -1,4 +1,5 @@
-import React from 'react';
+
+
 import axios from 'axios';
 
 const WalletRechargeCard = ({ request, onAction }) => {
@@ -16,6 +17,8 @@ const WalletRechargeCard = ({ request, onAction }) => {
       </div>
     );
   }
+
+console.log('WalletRechargeCard props:', request);
 
   const { id, user, amount, date } = request;
 
