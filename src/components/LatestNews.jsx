@@ -8,7 +8,7 @@ const LatestNews = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const blogsPerPage = 3; // ✅ Show only one row (3 blogs per page)
+  const blogsPerPage = 3; //  Show only one row (3 blogs per page)
   const navigate = useNavigate();
 
   useEffect(() => {

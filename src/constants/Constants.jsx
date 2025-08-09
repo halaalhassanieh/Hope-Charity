@@ -69,3 +69,8 @@ export const ContactUsHead = {
   title: "Every Act of Kindness Counts",
   subtitle: "Have questions, ideas, or want to get involved? Reach out today. Your voice, support, and feedback help shape a better, more compassionate future.",
 };
+export const NewsHead = {
+  page: ">  News",
+  title: "Stories That Inspire Action",
+  subtitle: "Stay updated with the latest stories, events, and breakthroughs from our mission around the world. Explore how your support drives change every day.",
+};
