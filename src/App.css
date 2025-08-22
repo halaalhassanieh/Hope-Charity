@@ -645,9 +645,19 @@ video {
   z-index: 50;
 }
 
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .mb-1 {
@@ -1651,6 +1661,11 @@ video {
   .custom-tap\:py-\[65px\] {
     padding-top: 65px;
     padding-bottom: 65px;
+  }
+
+  .custom-tap\:py-\[60px\] {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .custom-tap\:pl-2 {

@@ -56,15 +56,18 @@ const WalletRechargeRequests = () => {
   };
 
   if (loading) {
-    return <div>Loading requests...</div>;
+    return <div className="p-8 font-vietnam text-center text-gray/600">Loading requests...</div>;
   }
 
   if (requests.length === 0) {
-    return <div>No pending wallet recharge requests found.</div>;
+    return <div className="p-8 font-vietnam text-center text-gray/600" >No pending wallet recharge requests found.</div>;
   }
 
   return (
-    <div>
+    <div className="w-full custom-tap:px-12 px-1 custom-tap:py-[60px] py-3 font-vietnam bg-gray/100">
+      <h2 className="text-2xl text-orange/500 font-bold pb-3 border-b-4 border-black">
+        All wallet requests
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-3">
         {currentRequests.map((request) => (
           <WalletRechargeCard
