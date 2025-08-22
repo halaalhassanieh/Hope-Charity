@@ -25,7 +25,12 @@ const WalletRechargeRequests = () => {
         withCredentials: true,
       });
 
-      setRequests(response.data);
+      // ✅ Only keep requests with status "pending"
+      const pendingRequests = response.data.filter(
+        (req) => req.status === "pending"
+      );
+
+      setRequests(pendingRequests);
     } catch (error) {
       console.error("Error fetching wallet requests:", error);
       alert("Failed to load wallet requests.");
@@ -55,43 +60,43 @@ const WalletRechargeRequests = () => {
   }
 
   if (requests.length === 0) {
-    return <div>No wallet recharge requests found.</div>;
+    return <div>No pending wallet recharge requests found.</div>;
   }
 
   return (
     <div>
-<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-3">
-  {currentRequests.map((request) => (
-    <WalletRechargeCard
-      key={request._id}
-      request={request}
-      onAction={handleAction}
-    />
-  ))}
-</div>
-{/* Pagination controls */}
-<div className="flex justify-center items-center gap-6 mt-3 font-vietnam text-gray-700">
-  <button
-    className="px-5 py-2 rounded-xl bg-orange-200 hover:bg-orange-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
-    onClick={() => goToPage(currentPage - 1)}
-    disabled={currentPage === 1}
-  >
-    Previous
-  </button>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-3">
+        {currentRequests.map((request) => (
+          <WalletRechargeCard
+            key={request._id}
+            request={request}
+            onAction={handleAction}
+          />
+        ))}
+      </div>
 
-  <span className="text-lg font-semibold px-4 py-2 bg-orange-100 rounded-xl shadow-inner text-orange-700">
-    Page {currentPage} of {totalPages}
-  </span>
+      {/* Pagination controls */}
+      <div className="flex justify-center items-center gap-6 mt-3 font-vietnam text-gray-700">
+        <button
+          className="px-5 py-2 rounded-xl bg-orange-200 hover:bg-orange-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          onClick={() => goToPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
 
-  <button
-    className="px-5 py-2 rounded-xl bg-orange-200 hover:bg-orange-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
-    onClick={() => goToPage(currentPage + 1)}
-    disabled={currentPage === totalPages}
-  >
-    Next
-  </button>
-</div>
+        <span className="text-lg font-semibold px-4 py-2 bg-orange-100 rounded-xl shadow-inner text-orange-700">
+          Page {currentPage} of {totalPages}
+        </span>
 
+        <button
+          className="px-5 py-2 rounded-xl bg-orange-200 hover:bg-orange-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          onClick={() => goToPage(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

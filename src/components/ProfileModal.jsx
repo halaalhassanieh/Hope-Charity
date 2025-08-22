@@ -1,30 +1,44 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const ProfileModal = ({ onClose }) => {
-  const email = localStorage.getItem("email");
+  
   const token = localStorage.getItem("token");
-  const wallet = localStorage.getItem("wallet");
+  const id = localStorage.getItem("id");
+
+  const [email,setemail]=useState("")
+  const [wallet,setwallet]=useState("")
+  const [amount, setAmount] = useState();
 
   const navigate = useNavigate();
 
-  const [amount, setAmount] = useState();
+
+   // function to get user info 
+ 
+useEffect(() => {
+  axios.get(`/api/users/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((res) => {
+      setemail(res.data.email);
+      setwallet(res.data.wallet);
+    })
+    .catch((error) => {
+      alert("Cannot get user information");
+      console.error(error);
+    });
+}, [id, token]); 
 
   //funtion to logout
   const handleLogout = () => {
     localStorage.clear();
     navigate("/login");
     window.location.reload();
-    //  onClose();
+     onClose();
   };
 
-console.log("Sending recharge:", {
-  email,
-  amount: Number(amount),
-  token,
-  wallet,
-});
+
 
  // fuction to send request for wallet recharge
  const handleRecharge = async () => {
@@ -56,6 +70,7 @@ console.log("Sending recharge:", {
 };
 
   return (
+    
     <div className="absolute top-14 right-0 w-72 bg-white shadow-xl rounded-xl border border-gray-300 z-50 p-4">
       <div>
         <h3 className="text-lg font-semibold mb-2">Profile</h3>

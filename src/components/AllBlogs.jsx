@@ -118,7 +118,10 @@ const AllBlogs = () => {
   return (
 
     <div className=" custom-tap:p-14  p-3 max-h-[70vh] bg-gray/100 font-vietnam">
-      <div className="flex justify-between items-center mb-4 pb-3 border-b-4 border-black">
+   
+    {/*div for headpage */}
+     <div>
+       <div className="flex justify-between items-center mb-4 pb-3 border-b-4 border-black">
         <h2 className="text-2xl text-orange/500 font-bold">📚 All Blogs</h2>
         <button
           onClick={handleDeleteAll}
@@ -135,6 +138,8 @@ const AllBlogs = () => {
         placeholder="Search blogs by title..."
         className="w-full mb-4 p-2 text-sm border border-gray/600 rounded-lg focus:outline-none focus:border-orange/500"
       />
+     </div> 
+     
       {/*here is a div to show all blogs using map on the filterd blogs  */}
       <div className="grid grid-cols-1 custom-tap:grid-cols-2 custom-xl:grid-cols-3 gap-6">
         {currentBlogs.map((blog) => (
@@ -177,6 +182,7 @@ const AllBlogs = () => {
           </div>
         ))}
       </div>
+
       {/* here is the pagination control */}
       {totalPages > 1 && (
         <div className="flex justify-center items-center mt-8 space-x-2">

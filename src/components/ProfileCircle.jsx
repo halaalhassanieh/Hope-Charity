@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import ProfileModal from './ProfileModal'; // we'll create this
+import ProfileModal from './ProfileModal';
 
 const ProfileCircle = () => {
   const [showProfile, setShowProfile] = useState(false);
-
   const toggleProfile = () => {
     setShowProfile(prev => !prev);
   };

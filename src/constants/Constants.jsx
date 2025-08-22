@@ -20,6 +20,10 @@ export const hero2Info = {
     lines: [{ id: "1", line: "Choose your cause" }, { id: "2", line: "Donate the amount you like" }, { id: "3", line: "Register on our website" }, { id: "4", line: "Stay tuned about cause" },]
 
 }
+export const hero3Info = {
+    title: "Transforming Good Intentions into Good Actions.",
+    subtitle: "We believe that every act of compassion has the power to create lasting change. Our mission is to help people like you move from intention to impact—by supporting causes that matter, uplifting communities in need, and building real solutions through service and solidarity. Whether you donate, volunteer, or advocate, your actions help transform hope into progress and care into measurable outcomes. Together, we can build a world where doing good truly makes a difference.",
+}
 
 export const CatCardInfo = [
 { 

@@ -21,11 +21,11 @@ const LogIn = () => {
         password
       });
 
-      // ✅ Store token and email in localStorage
+      // Store token and email in localStorage
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("email", email); // Or use response.data.user.email
+      localStorage.setItem("id", response.data.id);
+      localStorage.setItem("email", email);
       localStorage.setItem("isAdmin", response.data.isAdmin);
-      localStorage.setItem("wallet", response.data.wallet);
       console.log("Login success:", response.data);
       navigate("/dashboard");
     } catch (err) {
