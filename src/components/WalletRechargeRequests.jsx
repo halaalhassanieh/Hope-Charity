@@ -19,13 +19,10 @@ const WalletRechargeRequests = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.get("/api/wallet-requests", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       });
 
-      // Only keep requests with status "pending"
       const pendingRequests = response.data.filter(
         (req) => req.status === "pending"
       );
@@ -47,20 +44,14 @@ const WalletRechargeRequests = () => {
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentRequests = requests.slice(indexOfFirstCard, indexOfLastCard);
-
   const totalPages = Math.ceil(requests.length / cardsPerPage);
-
-  const goToPage = (pageNumber) => {
-    if (pageNumber < 1 || pageNumber > totalPages) return;
-    setCurrentPage(pageNumber);
-  };
 
   if (loading) {
     return <div className="p-8 font-vietnam text-center text-gray/600">Loading requests...</div>;
   }
 
   if (requests.length === 0) {
-    return <div className="p-8 font-vietnam text-center text-gray/600" >No pending wallet recharge requests found.</div>;
+    return <div className="p-8 font-vietnam text-center text-gray/600">No pending wallet recharge requests found.</div>;
   }
 
   return (
@@ -68,6 +59,7 @@ const WalletRechargeRequests = () => {
       <h2 className="text-2xl text-orange/500 font-bold pb-3 border-b-4 border-black">
         All wallet requests
       </h2>
+
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-3">
         {currentRequests.map((request) => (
           <WalletRechargeCard
@@ -78,28 +70,38 @@ const WalletRechargeRequests = () => {
         ))}
       </div>
 
-      {/* Pagination controls */}
-      <div className="flex justify-center items-center gap-6 mt-3 font-vietnam text-gray-700">
-        <button
-          className="px-5 py-2 rounded-xl bg-orange-200 hover:bg-orange-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
-          onClick={() => goToPage(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center mt-8 space-x-2">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 disabled:opacity-50"
+          >
+            Prev
+          </button>
 
-        <span className="text-lg font-semibold px-4 py-2 bg-orange-100 rounded-xl shadow-inner text-orange-700">
-          Page {currentPage} of {totalPages}
-        </span>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`px-3 py-1 rounded-full ${
+                currentPage === i + 1 ? "bg-orange-500 text-white" : "bg-gray-200"
+              } hover:bg-orange-400`}
+            >
+              {i + 1}
+            </button>
+          ))}
 
-        <button
-          className="px-5 py-2 rounded-xl bg-orange-200 hover:bg-orange-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
-          onClick={() => goToPage(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
-      </div>
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };

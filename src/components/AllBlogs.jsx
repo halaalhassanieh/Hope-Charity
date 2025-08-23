@@ -122,7 +122,7 @@ const AllBlogs = () => {
     {/*div for headpage */}
      <div>
        <div className="flex justify-between items-center mb-4 pb-3 border-b-4 border-black">
-        <h2 className="text-2xl text-orange/500 font-bold">📚 All Blogs</h2>
+        <h2 className="text-2xl text-orange/500 font-bold"> All Blogs</h2>
         <button
           onClick={handleDeleteAll}
           className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition"
