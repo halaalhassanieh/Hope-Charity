@@ -21,8 +21,9 @@ export const hero2Info = {
 
 }
 export const hero3Info = {
-    title: "Transforming Good Intentions into Good Actions.",
-    subtitle: "We believe that every act of compassion has the power to create lasting change. Our mission is to help people like you move from intention to impact—by supporting causes that matter, uplifting communities in need, and building real solutions through service and solidarity. Whether you donate, volunteer, or advocate, your actions help transform hope into progress and care into measurable outcomes. Together, we can build a world where doing good truly makes a difference.",
+    title: "Make a Difference, Support Those in Need.",
+    subtitle1: "Small acts of kindness carry the power to bring light into lives that feel unseen. Together, we can create ripples of change by choosing compassion over indifference and support over silence. Every gesture, whether big or small, becomes part of a greater impact. Hope grows when action replaces intention, and communities become stronger through shared responsibility.",
+    subtitle2: "Empathy is more than a feeling it is the bridge between awareness and meaningful impact. When we reach out to support those in need, we not only uplift others but also nurture our own humanity. By transforming care into contribution, generosity into movement, we remind the world that change begins with us. Action today shapes a brighter tomorrow.",
 }
 
 export const CatCardInfo = [

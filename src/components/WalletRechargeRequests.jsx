@@ -6,8 +6,8 @@ const WalletRechargeRequests = () => {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Show 9 cards per page (3 rows × 3 cards)
-  const cardsPerPage = 9;
+  // Show 6 cards per page (2 rows × 3 cards)
+  const cardsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const WalletRechargeRequests = () => {
         withCredentials: true,
       });
 
-      // ✅ Only keep requests with status "pending"
+      // Only keep requests with status "pending"
       const pendingRequests = response.data.filter(
         (req) => req.status === "pending"
       );
