@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // for navigation
+import { useNavigate } from "react-router-dom";
 
-const LatestNews = () => {
+const LatestNews = ({ blogsnumber = 3, displayButton = true, displaySearch = true }) => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState("");
 
-  const blogsPerPage = 3; //  Show only one row (3 blogs per page)
+  const blogsPerPage = blogsnumber;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,8 +28,14 @@ const LatestNews = () => {
     }
   };
 
-  const totalPages = Math.ceil(blogs.length / blogsPerPage);
-  const paginatedBlogs = blogs.slice(
+  // 🔎 Filter blogs based on search
+  const filteredBlogs = blogs.filter((blog) =>
+    blog.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Pagination based on filtered blogs
+  const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
+  const paginatedBlogs = filteredBlogs.slice(
     (currentPage - 1) * blogsPerPage,
     currentPage * blogsPerPage
   );
@@ -42,22 +49,35 @@ const LatestNews = () => {
   }
 
   return (
-    <div className="custom-tap:py-[120px] py-[100px]">
+    <div className="custom-tap:py-[80px] py-[70px]">
       <div className="custom-container">
         {/* Header */}
         <div className="flex justify-between items-center mb-6 pb-4 border-b-4 border-black">
           <h2 className="custom-xl:text-[50px] custom-tap:text-[45px] text-[40px] text-black font-bold pb-3 custom-tap:w-2/3 w-3/4">
             Latest News and Blog
           </h2>
-          <button
-            onClick={() => navigate("/news")}
-            className="text-black border-2 border-black px-4 py-2 rounded-lg text-sm font-bold transition"
-          >
-            More news
-          </button>
+          {displayButton && (
+            <button
+              onClick={() => navigate("/news")}
+              className="text-black border-2 border-black px-4 py-2 rounded-lg text-sm font-bold transition hover:bg-black hover:text-white"
+            >
+              More news
+            </button>
+          )}
         </div>
 
-        {/* Blog Grid - Only 3 per page = 1 row */}
+        {/* 🔎 Search */}
+        {displaySearch && (
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search blogs by title..."
+            className="w-full mb-6 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-orange/500"
+          />
+        )}
+
+        {/* Blog Grid */}
         <div className="grid grid-cols-1 custom-tap:grid-cols-2 custom-xl:grid-cols-3 gap-6">
           {paginatedBlogs.map((blog) => (
             <div
@@ -66,7 +86,7 @@ const LatestNews = () => {
             >
               {blog.image && (
                 <img
-                  src={`${blog.image}`}
+                  src={blog.image}
                   alt={blog.title}
                   className="w-full max-h-60 object-cover rounded-lg mb-4"
                 />
@@ -86,10 +106,10 @@ const LatestNews = () => {
                 </p>
               </div>
 
-              <div className="mt-4 flex justify-end">
+              <div className="mt-4 flex justify-center ">
                 <button
                   onClick={() => setSelectedBlog(blog)}
-                  className="bg-orange/500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
+                  className="w-full bg-orange/500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
                 >
                   Read More
                 </button>
@@ -99,24 +119,44 @@ const LatestNews = () => {
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center mt-8 gap-2">
-          {Array.from({ length: totalPages }, (_, index) => (
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center mt-5 space-x-2">
             <button
-              key={index}
-              onClick={() => setCurrentPage(index + 1)}
-              className={`px-4 py-2 rounded-full border ${
-                currentPage === index + 1
-                  ? "bg-black text-white"
-                  : "bg-white text-black border-black"
-              }`}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 disabled:opacity-50"
             >
-              {index + 1}
+              Prev
             </button>
-          ))}
-        </div>
+
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`px-3 py-1 rounded-full ${
+                  currentPage === i + 1
+                    ? "bg-orange-500 text-white"
+                    : "bg-gray-200"
+                } hover:bg-orange-400`}
+              >
+                {i + 1}
+              </button>
+            ))}
+
+            <button
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Modal for Read More */}
+      {/* Modal */}
       {selectedBlog && (
         <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
           <div className="bg-white rounded-lg max-w-2xl w-full p-6 relative overflow-y-auto max-h-[90vh]">

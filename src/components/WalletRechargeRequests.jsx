@@ -55,7 +55,7 @@ const WalletRechargeRequests = () => {
   }
 
   return (
-    <div className="w-full custom-tap:px-12 px-1 custom-tap:py-[60px] py-3 font-vietnam bg-gray/100">
+    <div className="w-full custom-tap:px-12 px-1 custom-tap:py-[55px] py-3 font-vietnam bg-gray/100">
       <h2 className="text-2xl text-orange/500 font-bold pb-3 border-b-4 border-black">
         All wallet requests
       </h2>
@@ -72,7 +72,7 @@ const WalletRechargeRequests = () => {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex justify-center items-center mt-8 space-x-2">
+        <div className="flex justify-center items-center mt-6 space-x-2">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}

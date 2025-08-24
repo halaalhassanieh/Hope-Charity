@@ -28,8 +28,8 @@ const SideBar = () => {
   return (
     <div className="flex  flex-col custom-tap:flex-row h-full">
       {/* Sidebar - Column on large, Row on small */}
-      <div className="bg-gray/100 text-black/60 font-vietnam custom-tap:w-1/4 w-full py-4 px-4">
-        <div className="text-orange/500 text-2xl font-bold my-4 custom-tap:my-8 pl-2 pr-4 py-2 custom-tap:py-4 border-b-4 custom-tap:border-b-4 border-black text-center custom-tap:text-left">
+      <div className="bg-gray/100 text-black/60 font-vietnam custom-tap:w-1/4 w-full py-1 px-4">
+        <div className="text-orange/500 text-2xl font-bold my-2 custom-tap:my-8 pl-2 pr-4 py-2 custom-tap:py-4 border-b-4 custom-tap:border-b-4 border-black text-center custom-tap:text-left">
           Admin Control
         </div>
         <nav className="flex custom-tap:flex-col flex-row flex-wrap justify-around custom-tap:pl-2 pr-4 text-center gap-2 mt-4">

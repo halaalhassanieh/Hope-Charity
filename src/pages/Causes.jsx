@@ -2,7 +2,6 @@ import React from 'react'
 import CausesCatCard from '../components/CausesCatCard'
 import { CatCardInfo,CausesHead } from '../constants/Constants.jsx'
 import PageHeader from '../components/ui/PageHeader.jsx'
-import AllCauses from '../components/AllCauses.jsx'
 import MainCauses from '../components/MainCauses.jsx'
 
 const Causes = () => {
@@ -22,7 +21,7 @@ const Causes = () => {
           </div>
          </div>
       <div>
-        <MainCauses cardsnumber={9}/>
+        <MainCauses cardsnumber={9} displayButton={false} displaySearch={true}/>
       </div>
       </div>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Hero from '../components/Hero'
 import { heroInfo,hero2Info,CatCardInfo } from '../constants/Constants.jsx'
 import InfoBlock from '../components/InfoBlock'
@@ -6,7 +6,6 @@ import sideimg from"/assets/sideimg.jpeg"
 import HomeCatCard from '../components/HomeCatCard'
 import LatestNews from '../components/LatestNews.jsx'
 import MainCauses from '../components/MainCauses.jsx'
-
 
 
 const Home = () => {
@@ -32,8 +31,8 @@ const Home = () => {
             
          </div>
       </div>
-      <MainCauses cardsnumber={3} />
-       <LatestNews/>
+      <MainCauses cardsnumber={3} displayButton={true} displaySearch={false} />
+      <LatestNews blogsnumber={3} displayButton={true} displaySearch={false}/>
 
     </div>
   )

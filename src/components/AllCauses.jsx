@@ -70,7 +70,7 @@ const AllCauses = () => {
       setCustomAmount("");
     } catch (error) {
       console.error("Donation error:", error);
-      alert("Failed to process donation.");
+      alert("Failed to process donation, please check your wallet amount or the internet connection.");
     }
   };
 
@@ -93,10 +93,10 @@ const AllCauses = () => {
   }
 
   return (
-    <div className="p-3 md:p-14 bg-gray/100 font-vietnam min-h-screen">
+    <div className="p-3 md:p-10 bg-gray/100 font-vietnam ">
       {/* Header */}
-      <div className="mb-4">
-        <div className="flex justify-between items-center mb-4 pb-3 border-b-4 border-black">
+      <div className="mt-3 mb-1">
+        <div className="flex justify-between items-center mb-2 pb-3 border-b-4 border-black">
           <h2 className="text-2xl text-orange/500 font-bold"> All Causes</h2>
         </div>
 
@@ -105,7 +105,7 @@ const AllCauses = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search causes by title..."
-          className="w-full mb-4 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-orange/500"
+          className="w-full mb-2 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-orange/500"
         />
       </div>
 
@@ -118,25 +118,25 @@ const AllCauses = () => {
           return (
             <div
               key={cause._id}
-              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition flex flex-col justify-between"
+              className="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition flex flex-col justify-between"
             >
               {cause.image && (
                 <img
                   src={cause.image}
                   alt={cause.title}
-                  className="w-full max-h-56 object-cover rounded-lg mb-4"
+                  className="w-full max-h-44 object-cover rounded-lg mb-2"
                 />
               )}
 
               <div>
-                <h3 className="text-xl font-bold text-black mb-2">{cause.title}</h3>
-                <p className="text-gray/600 mb-2 line-clamp-3">{cause.description}</p>
+                <h3 className="text-xl font-bold text-black mb-1">{cause.title}</h3>
+                <p className="text-gray/600  line-clamp-3 max-h-6">{cause.description}</p>
                 <div className="text-sm text-black/60 space-y-1 mb-2">
                   <p><strong>Goal:</strong> ${cause.goal}</p>
                   <p><strong>Raised:</strong> ${cause.raised}</p>
                 </div>
 
-                <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
+                <div className="w-full bg-gray-200 rounded-full h-3 mb-1">
                   <div
                     className="bg-orange-500 h-3 rounded-full transition-all"
                     style={{ width: `${progress}%` }}
@@ -165,7 +165,7 @@ const AllCauses = () => {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex justify-center items-center mt-8 space-x-2">
+        <div className="flex justify-center items-center mt-5 space-x-2">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
@@ -207,7 +207,7 @@ const AllCauses = () => {
               X
             </button>
 
-            <h2 className="text-2xl font-bold text-black mb-4">{selectedCause.title}</h2>
+            <h2 className="text-2xl font-bold text-black mb-3">{selectedCause.title}</h2>
 
             {selectedCause.image && (
               <img
@@ -217,7 +217,7 @@ const AllCauses = () => {
               />
             )}
 
-            <p className="text-gray-700 mb-4">{selectedCause.description}</p>
+            <p className="text-gray-700 mb-4 ">{selectedCause.description}</p>
 
             <div className="text-sm text-gray-600 mb-2">
               <p><strong>Goal:</strong> ${selectedCause.goal}</p>
