@@ -38,9 +38,13 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
     }
 
     try {
-      await axios.post(`/api/cause/donate/${causeId}`, { amount }, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.post(
+        `/api/cause/donate/${causeId}`,
+        { amount },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       setCauses((prev) =>
         prev.map((c) =>
@@ -57,7 +61,9 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
       setCustomAmount("");
     } catch (error) {
       console.error("Donation error:", error);
-      alert("Failed to process donation, please check your wallet amount or the internet connection");
+      alert(
+        "Failed to process donation, please check your wallet amount or the internet connection"
+      );
     }
   };
 
@@ -69,7 +75,10 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
   // Pagination
   const totalPages = Math.ceil(filteredCauses.length / causesPerPage);
   const startIndex = (currentPage - 1) * causesPerPage;
-  const paginatedCauses = filteredCauses.slice(startIndex, startIndex + causesPerPage);
+  const paginatedCauses = filteredCauses.slice(
+    startIndex,
+    startIndex + causesPerPage
+  );
 
   if (loading) {
     return (
@@ -113,7 +122,9 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {paginatedCauses.map((cause) => {
           const progress =
-            cause.goal > 0 ? Math.min((cause.raised / cause.goal) * 100, 100) : 0;
+            cause.goal > 0
+              ? Math.min((cause.raised / cause.goal) * 100, 100)
+              : 0;
 
           return (
             <div
@@ -129,11 +140,19 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
               )}
 
               <div>
-                <h3 className="text-xl font-bold text-black mb-2">{cause.title}</h3>
-                <p className="text-gray/600 mb-2 line-clamp-3">{cause.description}</p>
+                <h3 className="text-xl font-bold text-black mb-2">
+                  {cause.title}
+                </h3>
+                <p className="text-gray/600 mb-2 line-clamp-3">
+                  {cause.description}
+                </p>
                 <div className="text-sm text-black/60 space-y-1 mb-2">
-                  <p><strong>Goal:</strong> ${cause.goal}</p>
-                  <p><strong>Raised:</strong> ${cause.raised}</p>
+                  <p>
+                    <strong>Goal:</strong> ${cause.goal}
+                  </p>
+                  <p>
+                    <strong>Raised:</strong> ${cause.raised}
+                  </p>
                 </div>
 
                 <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
@@ -173,7 +192,9 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
               key={i}
               onClick={() => setCurrentPage(i + 1)}
               className={`px-3 py-1 rounded-full ${
-                currentPage === i + 1 ? "bg-orange-500 text-white" : "bg-gray-200"
+                currentPage === i + 1
+                  ? "bg-orange-500 text-white"
+                  : "bg-gray-200"
               } hover:bg-orange-400`}
             >
               {i + 1}
@@ -181,7 +202,9 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
           ))}
 
           <button
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
             disabled={currentPage === totalPages}
             className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 disabled:opacity-50"
           >
@@ -190,7 +213,101 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
         </div>
       )}
 
-      {/* Modal ... (unchanged) */}
+      {/* Modal */}
+      {selectedCause && (
+        <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto relative">
+            <button
+              onClick={() => setSelectedCause(null)}
+              className="absolute top-4 right-4 text-gray-600 hover:text-red-600 text-xl font-bold"
+            >
+              X
+            </button>
+
+            <h2 className="text-2xl font-bold text-black mb-3">
+              {selectedCause.title}
+            </h2>
+
+            {selectedCause.image && (
+              <img
+                src={selectedCause.image}
+                alt={selectedCause.title}
+                className="w-full max-h-72 object-cover rounded-lg mb-4"
+              />
+            )}
+
+            <p className="text-gray-700 mb-4">{selectedCause.description}</p>
+
+            <div className="text-sm text-gray-600 mb-2">
+              <p>
+                <strong>Goal:</strong> ${selectedCause.goal}
+              </p>
+              <p>
+                <strong>Raised:</strong> ${selectedCause.raised}
+              </p>
+            </div>
+
+            <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
+              <div
+                className="bg-orange-500 h-3 rounded-full transition-all"
+                style={{
+                  width: `${
+                    selectedCause.goal > 0
+                      ? Math.min(
+                          (selectedCause.raised / selectedCause.goal) * 100,
+                          100
+                        )
+                      : 0
+                  }%`,
+                }}
+              ></div>
+            </div>
+
+            <div className="border-t border-gray-300 pt-4">
+              <h3 className="text-lg font-semibold text-black mb-2">
+                Choose the donation amount
+              </h3>
+
+              <div className="flex space-x-3 mb-3">
+                {[100, 200, 300, 400, 500].map((amount) => (
+                  <button
+                    key={amount}
+                    onClick={() => {
+                      setDonation(amount);
+                      setCustomAmount("");
+                    }}
+                    className={`px-4 py-2 rounded-lg font-semibold border ${
+                      donation === amount
+                        ? "bg-orange-500 text-white border-orange-500"
+                        : "bg-gray-100 text-black border-gray-400 hover:bg-gray-200"
+                    }`}
+                  >
+                    ${amount}
+                  </button>
+                ))}
+              </div>
+
+              <input
+                type="number"
+                value={customAmount}
+                onChange={(e) => {
+                  setDonation(null);
+                  setCustomAmount(e.target.value);
+                }}
+                placeholder="Or enter any amount you want here.."
+                className="w-full p-2 border border-gray-400 rounded-lg mb-4 focus:outline-none focus:border-orange/500"
+              />
+
+              <button
+                onClick={() => handleDonate(selectedCause._id)}
+                className="w-full bg-orange-500 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-orange-600 transition duration-200"
+              >
+                Donate
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

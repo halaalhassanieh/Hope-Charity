@@ -3,6 +3,11 @@ import { FaFaucetDrip } from "react-icons/fa6";
 import { GiFirstAidKit } from "react-icons/gi";
 import { FaPeopleGroup } from "react-icons/fa6";
 
+import { FaFacebook,FaPhoneAlt, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaLocationDot } from "react-icons/fa6";
+
+
+
 
 
 export const heroInfo = {
@@ -63,14 +68,9 @@ export const CausesHead = {
   subtitle: "Your donation fuels real impact—providing food, water, education, and care to communities in need. Together, we can change lives for the better.",
 };
 
-export const AboutUsHead = {
-  page: ">  About Us",
-  title: "United for Good, Strong for Charity",
-  subtitle: "We are a passionate team dedicated to empowering lives through service, compassion, and sustainable solutions. Discover our mission and how you can be involved.",
-};
 
-export const ContactUsHead = {
-  page: ">  Contact Us",
+export const AboutUsHead = {
+  page: ">  About & Contact ",
   title: "Every Act of Kindness Counts",
   subtitle: "Have questions, ideas, or want to get involved? Reach out today. Your voice, support, and feedback help shape a better, more compassionate future.",
 };
@@ -79,3 +79,46 @@ export const NewsHead = {
   title: "Stories That Inspire Action",
   subtitle: "Stay updated with the latest stories, events, and breakthroughs from our mission around the world. Explore how your support drives change every day.",
 };
+ 
+  export const icons=[
+    {icon:<FaFacebook />},{icon:<FaTwitter />},{icon:<FaLinkedin />},
+  ]
+  export const homelinks=
+    [{
+      id:'#causes',
+      name:'Causes'
+    },
+    {
+      id:'#feedbacks',
+      name:'Feedbacks'
+    },
+    {
+      id:'#news',
+      name:'News & Blogs'
+    },
+    
+    ]
+    export const aboutlinks =
+    [{
+      id:'#faq',
+      name:'Our FAQ'
+    },]
+    
+   export const contactInfoData=[
+    {
+    info: "support@hopecharity.com",
+    icons: [<FaEnvelope />],
+  },
+  {
+    info: "+963 987 654 321",
+    icons: [<FaPhoneAlt />],
+  },
+  {
+    info: "Syria, Homs",
+    icons: [<FaLocationDot />],
+  },
+  {
+    info: "Social Profiles",
+    icons: [<FaFacebook />, <FaTwitter />, <FaLinkedin />],
+  },
+   ]

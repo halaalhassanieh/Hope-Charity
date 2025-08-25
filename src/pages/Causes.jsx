@@ -3,6 +3,7 @@ import CausesCatCard from '../components/CausesCatCard'
 import { CatCardInfo,CausesHead } from '../constants/Constants.jsx'
 import PageHeader from '../components/ui/PageHeader.jsx'
 import MainCauses from '../components/MainCauses.jsx'
+import Footer from '../components/footer/Footer.jsx'
 
 const Causes = () => {
   return (
@@ -23,6 +24,7 @@ const Causes = () => {
       <div>
         <MainCauses cardsnumber={9} displayButton={false} displaySearch={true}/>
       </div>
+      <Footer/>
       </div>
   )
 }

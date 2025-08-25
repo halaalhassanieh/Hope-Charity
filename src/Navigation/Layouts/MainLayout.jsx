@@ -27,13 +27,10 @@ const MainLayout = () => {
       path: "/news",
     },
     {
-      elementName: "About Us",
+      elementName: "About & Contact",
       path: "/aboutUs",
     },
-    {
-      elementName: "Contact Us",
-      path: "/contactUs",
-    }
+    
   ]; if (localStorage.getItem("isAdmin") === "true") {
           NavLinkData.push({
             elementName: "Dashboard",

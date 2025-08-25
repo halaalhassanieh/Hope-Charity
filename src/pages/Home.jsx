@@ -6,12 +6,14 @@ import sideimg from"/assets/sideimg.jpeg"
 import HomeCatCard from '../components/HomeCatCard'
 import LatestNews from '../components/LatestNews.jsx'
 import MainCauses from '../components/MainCauses.jsx'
+import Footer from '../components/footer/Footer.jsx'
+
 
 
 const Home = () => {
 
   return (
-    <div>
+    <div id='#'>
 
       <Hero title1={heroInfo.title1} title2={heroInfo.title2} subtilte={heroInfo.subtitle} buttonName={heroInfo.buttonName} buttonPath={heroInfo.buttonPath}  />
 
@@ -33,7 +35,7 @@ const Home = () => {
       </div>
       <MainCauses cardsnumber={3} displayButton={true} displaySearch={false} />
       <LatestNews blogsnumber={3} displayButton={true} displaySearch={false}/>
-
+      <Footer />
     </div>
   )
 }
