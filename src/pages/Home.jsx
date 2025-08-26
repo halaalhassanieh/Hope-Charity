@@ -7,13 +7,14 @@ import HomeCatCard from '../components/HomeCatCard'
 import LatestNews from '../components/LatestNews.jsx'
 import MainCauses from '../components/MainCauses.jsx'
 import Footer from '../components/footer/Footer.jsx'
+import Feedback from '../components/Feedback.jsx'
 
 
 
 const Home = () => {
 
   return (
-    <div id='#'>
+    <div>
 
       <Hero title1={heroInfo.title1} title2={heroInfo.title2} subtilte={heroInfo.subtitle} buttonName={heroInfo.buttonName} buttonPath={heroInfo.buttonPath}  />
 
@@ -21,7 +22,7 @@ const Home = () => {
 
       <div className='bg-gray/100'>
         
-      <div className='custom-container  flex xl:flex-row flex-col  justify-center items-center gap-10 xl:py-[60px] py-10'>
+       <div className='custom-container  flex xl:flex-row flex-col  justify-center items-center gap-10 xl:py-[60px] py-10'>
 
          {
           CatCardInfo.map((e,i)=>{
@@ -33,8 +34,12 @@ const Home = () => {
             
          </div>
       </div>
-      <MainCauses cardsnumber={3} displayButton={true} displaySearch={false} />
-      <LatestNews blogsnumber={3} displayButton={true} displaySearch={false}/>
+      <div id='#causes'> <MainCauses cardsnumber={3} displayButton={true} displaySearch={false} /></div>
+
+      <div id='#feedbacks' className='bg-gray/100'> <Feedback/> </div>
+      
+      <div id='#news'><LatestNews blogsnumber={3} displayButton={true} displaySearch={false}/></div> 
+      
       <Footer />
     </div>
   )

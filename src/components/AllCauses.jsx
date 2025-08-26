@@ -65,7 +65,7 @@ const AllCauses = () => {
         setSelectedCause((prev) => ({ ...prev, raised: prev.raised + amount }));
       }
 
-      alert(`Successfully donated $${amount}! 🎉`);
+      alert(`Successfully donated $${amount}! `);
       setDonation(null);
       setCustomAmount("");
     } catch (error) {

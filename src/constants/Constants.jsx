@@ -8,8 +8,6 @@ import { FaEnvelope, FaLocationDot } from "react-icons/fa6";
 
 
 
-
-
 export const heroInfo = {
     title1: "Give Hope,",
     title2: "Save Lives",
@@ -83,6 +81,7 @@ export const NewsHead = {
   export const icons=[
     {icon:<FaFacebook />},{icon:<FaTwitter />},{icon:<FaLinkedin />},
   ]
+
   export const homelinks=
     [{
       id:'#causes',
@@ -122,3 +121,4 @@ export const NewsHead = {
     icons: [<FaFacebook />, <FaTwitter />, <FaLinkedin />],
   },
    ]
+
