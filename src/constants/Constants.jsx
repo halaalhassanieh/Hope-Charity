@@ -100,8 +100,8 @@ export const NewsHead = {
     ]
     export const aboutlinks =
     [{
-      id:'#faq',
-      name:'Our FAQ'
+      id:'#sendfeedback',
+      name:'Send Feedback'
     },]
     
    export const contactInfoData=[

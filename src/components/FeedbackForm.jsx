@@ -19,10 +19,10 @@ const FeedbackForm = () => {
     const formData = new FormData();
     formData.append('subject', subject);
     formData.append('message', message);
-    formData.append('image', image);
+    
 
     try {
-      const response = await axios.post('/api/feedback', {
+      const response = await axios.post('/api/feedback',{subject,message}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -42,9 +42,9 @@ const FeedbackForm = () => {
 
   return (
     <div>
-      <div className="custom-container font-vietnam rounded-3xl ">
-            <div className="   flex md:flex-nowrap flex-wrap items-center bg-gray/100"  >
-                      <div className=" flex justify-start items-start bg-black p-10 text-white custom-tap:w-auto w-full">
+      <div className="custom-container font-vietnam ">
+            <div className="   flex md:flex-nowrap flex-wrap bg-gray/100 rounded-3xl "  >
+                      <div className=" flex justify-start items-start bg-black p-10 text-white custom-tap:w-auto w-full rounded-3xl">
                         <ul>
                           <li className="sm:mb-9 mb-6 p-2 text-4xl font-bold"> Share love, <br></br> donate hope. </li>
                           {contactInfoData.slice(0, limit).map((info, index) => (
@@ -57,7 +57,7 @@ const FeedbackForm = () => {
                         </ul>
              </div>
         
-        <form onSubmit={handleSubmit} className="space-y-4 p-12 w-full bg-gray/100">
+        <form onSubmit={handleSubmit} className="space-y-4 p-12 w-full bg-gray/100 rounded-3xl">
            <div>
           <label className="block text-black font-semibold mb-3 text-2xl">Subject :</label>
           <input
