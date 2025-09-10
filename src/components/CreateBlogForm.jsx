@@ -6,7 +6,7 @@ const CreateBlogForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null); // ✅ New state for image preview
+  const [previewUrl, setPreviewUrl] = useState(null); //  New state for image preview
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ const CreateBlogForm = () => {
       setTitle('');
       setDescription('');
       setImage(null);
-      setPreviewUrl(null); // ✅ Clear preview
+      setPreviewUrl(null); // Clear preview
     } catch (error) {
       console.error(error);
       alert('Error creating blog. Please try again.');

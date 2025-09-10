@@ -28,7 +28,7 @@ const LatestNews = ({ blogsnumber = 3, displayButton = true, displaySearch = tru
     }
   };
 
-  // 🔎 Filter blogs based on search
+  //  Filter blogs based on search
   const filteredBlogs = blogs.filter((blog) =>
     blog.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -66,7 +66,7 @@ const LatestNews = ({ blogsnumber = 3, displayButton = true, displaySearch = tru
           )}
         </div>
 
-        {/* 🔎 Search */}
+        {/*  Search */}
         {displaySearch && (
           <input
             type="text"
