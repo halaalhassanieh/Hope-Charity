@@ -29,7 +29,7 @@ const WalletRechargeCard = ({ request, onAction }) => {
 
     try {
       setActionLoading(true);
-      const url = `/api/wallet-requests/${_id}`;
+      const url = `https://hope-lfey.onrender.com/api/wallet-requests/${_id}`;
 
       await axios.put(
         url,

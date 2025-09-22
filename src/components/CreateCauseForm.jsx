@@ -25,7 +25,7 @@ const CreateCauseForm = () => {
     formData.append('image', image);
 
     try {
-      const response = await axios.post('/api/cause', formData, {
+      const response = await axios.post('https://hope-lfey.onrender.com/api/cause', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

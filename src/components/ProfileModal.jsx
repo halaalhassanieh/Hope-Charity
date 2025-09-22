@@ -49,7 +49,7 @@ useEffect(() => {
 
   try {
     const res = await axios.post(
-      "/api/wallet-requests",
+      "https://hope-lfey.onrender.com/api/wallet-requests",
       { amount},
       {
         headers: { Authorization: `Bearer ${token}` },

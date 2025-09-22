@@ -17,7 +17,7 @@ const SignUp = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("/api/auth/register", {
+      const response = await axios.post("https://hope-lfey.onrender.com/api/auth/register", {
         userName,
         email,
         password,

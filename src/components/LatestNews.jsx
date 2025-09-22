@@ -18,7 +18,7 @@ const LatestNews = ({ blogsnumber = 3, displayButton = true, displaySearch = tru
 
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get("/api/blog");
+      const response = await axios.get("https://hope-lfey.onrender.com/api/blog");
       setBlogs(response.data);
     } catch (error) {
       console.error("Error fetching blogs:", error);

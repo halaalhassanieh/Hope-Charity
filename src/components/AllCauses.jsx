@@ -19,7 +19,7 @@ const AllCauses = () => {
 
   const fetchCauses = async () => {
     try {
-      const response = await axios.get("/api/cause");
+      const response = await axios.get("https://hope-lfey.onrender.com/api/cause");
       setCauses(response.data);
     } catch (error) {
       console.error("Error fetching causes:", error);

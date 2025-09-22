@@ -21,7 +21,7 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
 
   const fetchCauses = async () => {
     try {
-      const response = await axios.get("/api/cause");
+      const response = await axios.get("https://hope-lfey.onrender.com/api/cause");
       setCauses(response.data);
     } catch (error) {
       console.error("Error fetching causes:", error);
@@ -39,7 +39,7 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
 
     try {
       await axios.post(
-        `/api/cause/donate/${causeId}`,
+        `https://hope-lfey.onrender.com/api/cause/donate/${causeId}`,
         { amount },
         {
           headers: { Authorization: `Bearer ${token}` },

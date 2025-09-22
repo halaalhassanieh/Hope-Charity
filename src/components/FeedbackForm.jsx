@@ -22,7 +22,7 @@ const FeedbackForm = () => {
     
 
     try {
-      const response = await axios.post('/api/feedback',{subject,message}, {
+      const response = await axios.post('https://hope-lfey.onrender.com/api/feedback',{subject,message}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

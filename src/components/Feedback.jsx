@@ -14,7 +14,7 @@ const Feedback = () => {
 
   const fetchFeedbacks = async () => {
     try {
-      const response = await axios.get("/api/feedback");
+      const response = await axios.get("https://hope-lfey.onrender.com/api/feedback");
       setFeedbacks(response.data);
     } catch (error) {
       console.error("Error fetching Feedbacks:", error);

@@ -16,7 +16,7 @@ const LogIn = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("/api/auth/login", {
+      const response = await axios.post("https://hope-lfey.onrender.com/api/auth/login", {
         email,
         password
       });
