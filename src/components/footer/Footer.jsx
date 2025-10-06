@@ -18,7 +18,7 @@ const Footer = () => {
               {contactInfoData.slice(0, limit).map((info, index) => (
                 <li className="flex justify-start items-center gap-2 font-normal text-grey/15 custom-2xl:text-lg lg:text-base text-[15px] leading-[22.5px] my-5"
                   key={index}>
-                  <span className="text-xl text-orange/500">{info.icons}</span>{info.info}
+                  <span className="text-xl text-red-wine">{info.icons}</span>{info.info}
                 </li>
               ))}
 

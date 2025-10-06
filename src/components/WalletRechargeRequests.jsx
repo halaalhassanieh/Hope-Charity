@@ -56,7 +56,7 @@ const WalletRechargeRequests = () => {
 
   return (
     <div className="w-full custom-tap:px-12 px-1 custom-tap:py-[55px] py-3 font-vietnam bg-gray/100">
-      <h2 className="text-2xl text-orange/500 font-bold pb-3 border-b-4 border-black">
+      <h2 className="text-2xl text-red-wine font-bold pb-3 border-b-4 border-black">
         All wallet requests
       </h2>
 
@@ -86,8 +86,8 @@ const WalletRechargeRequests = () => {
               key={i}
               onClick={() => setCurrentPage(i + 1)}
               className={`px-3 py-1 rounded-full ${
-                currentPage === i + 1 ? "bg-orange-500 text-white" : "bg-gray-200"
-              } hover:bg-orange-400`}
+                currentPage === i + 1 ? "bg-red-wine text-white" : "bg-gray-200"
+              } hover:bg-red-wine`}
             >
               {i + 1}
             </button>

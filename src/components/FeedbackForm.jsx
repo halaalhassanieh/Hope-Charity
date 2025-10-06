@@ -50,7 +50,7 @@ const FeedbackForm = () => {
                           {contactInfoData.slice(0, limit).map((info, index) => (
                             <li className="flex justify-start items-center gap-2 font-normal text-grey/15 custom-2xl:text-lg lg:text-base text-[15px] leading-[22.5px] my-5"
                               key={index}>
-                              <span className="text-xl text-orange/500 ">{info.icons}</span>{info.info}
+                              <span className="text-xl text-red-wine ">{info.icons}</span>{info.info}
                             </li>
                           ))}
             
@@ -64,7 +64,7 @@ const FeedbackForm = () => {
             type="text"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
-            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-orange/500"
+            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-red-wine"
             placeholder="Subject "
             required
           />
@@ -76,7 +76,7 @@ const FeedbackForm = () => {
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-orange/500 min-h-[120px]"
+            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-red-wine min-h-[120px]"
             placeholder="Write your message content here..."
             required
           ></textarea>
@@ -85,7 +85,7 @@ const FeedbackForm = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="bg-orange/500 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-orange-600 transition duration-200"
+          className="bg-red-wine text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-red-wine transition duration-200"
         >
           Create
         </button>

@@ -73,7 +73,7 @@ const LatestNews = ({ blogsnumber = 3, displayButton = true, displaySearch = tru
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search blogs by title..."
-            className="w-full mb-6 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-orange/500"
+            className="w-full mb-6 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-red-wine"
           />
         )}
 
@@ -109,7 +109,7 @@ const LatestNews = ({ blogsnumber = 3, displayButton = true, displaySearch = tru
               <div className="mt-4 flex justify-center ">
                 <button
                   onClick={() => setSelectedBlog(blog)}
-                  className="w-full bg-orange/500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
+                  className="w-full bg-red-wine hover:bg-red-wine text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
                 >
                   Read More
                 </button>
@@ -135,9 +135,9 @@ const LatestNews = ({ blogsnumber = 3, displayButton = true, displaySearch = tru
                 onClick={() => setCurrentPage(i + 1)}
                 className={`px-3 py-1 rounded-full ${
                   currentPage === i + 1
-                    ? "bg-orange-500 text-white"
+                    ? "bg-red-wine text-white"
                     : "bg-gray-200"
-                } hover:bg-orange-400`}
+                } hover:bg-red-wine`}
               >
                 {i + 1}
               </button>

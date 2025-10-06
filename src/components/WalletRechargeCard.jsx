@@ -68,7 +68,7 @@ const WalletRechargeCard = ({ request, onAction }) => {
             Requested on: {new Date(createdAt).toLocaleDateString()}
           </p>
         </div>
-        <div className="text-orange-500 text-xl font-bold">+${amount}</div>
+        <div className="text-red-wine text-xl font-bold">+${amount}</div>
       </div>
 
       <div className="flex gap-4">

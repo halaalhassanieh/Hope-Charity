@@ -27,7 +27,7 @@ const InfoBlock = ({ sideimg, title, subtitle, lines }) => {
           {lines.map((e, i) => {
             return (
               <div key={i} className="flex gap-4 justify-center items-center">
-                <div className="flex justify-center items-center bg-orange/500 text-white rounded-full
+                <div className="flex justify-center items-center bg-red-wine text-white rounded-full
                       xl:text-base text-sm
                       xl:font-bold font-semibold 
                       xl:w-7 xl:h-7 w-6 h-6 ">

@@ -24,7 +24,7 @@ const Hero = ({ title1, title2, subtilte, buttonName, buttonPath }) => {
 
         </div>
         <p className='text-white/60 custom-tap:text-xl text-base custom-tap:w-2/4 w-5/6 custom-tap:pt-10 pt-7 text-shadow-black'>{subtilte}</p>
-        <button className='text-white bg-orange/500 rounded-xl py-2 custom-tap:mt-10 mt-7 
+        <button className='text-white bg-red-wine rounded-xl py-2 custom-tap:mt-10 mt-7 
                     custom-2xl:px-10 custom-xl:px-8 px-5
                     custom-xl:font-bold  font-medium
                     custom-2xl:text-base text-sm ' onClick={(moveToCauses)}>{buttonName}</button>

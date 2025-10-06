@@ -60,7 +60,7 @@ const NavBar = ({ icon, logo, NavLinkData, LoginButton }) => {
                     ) : (
                         // Show login button only when not logged in
                         <button
-                            className='text-white bg-orange/500 rounded-2xl py-1
+                            className='text-white bg-red-wine rounded-2xl py-1
                  custom-2xl:px-10 custom-xl:px-8 px-5
                  custom-xl:font-bold font-medium
                  custom-2xl:text-base text-sm'

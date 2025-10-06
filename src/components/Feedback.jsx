@@ -48,7 +48,7 @@ const Feedback = () => {
     <div  className="custom-container xl:flex block items-start justify-center font-vietnam">
       {/* Feedbacks slider */}
       <div className="w-full xl:w-1/2 px-6 xl:px-0">
-        <h1 className="text-orange-500 custom-3xl:text-[60px] custom-2xl:text-[50px] custom-xl:text-[45px] text-[35px] font-bold xl:text-left text-center
+        <h1 className="text-red-wine custom-3xl:text-[60px] custom-2xl:text-[50px] custom-xl:text-[45px] text-[35px] font-bold xl:text-left text-center
         pb-3 border-b-4 border-black">
           Feedbacks
         </h1>
@@ -75,13 +75,13 @@ const Feedback = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute xl:-left-6 left-6 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-orange-500 rounded-full p-2 shadow"
+            className="absolute xl:-left-6 left-6 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-red-wine rounded-full p-2 shadow"
           >
             <MdOutlineArrowBackIosNew size={18} />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute xl:-right-12 right-6 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-orange-500 rounded-full p-2 shadow"
+            className="absolute xl:-right-12 right-6 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-red-wine rounded-full p-2 shadow"
           >
             <MdArrowForwardIos size={18} />
           </button>
@@ -92,7 +92,7 @@ const Feedback = () => {
               <span
                 key={index}
                 className={`w-3 h-3 rounded-full ${
-                  index === currentIndex ? "bg-orange-500" : "bg-gray-300"
+                  index === currentIndex ? "bg-red-wine" : "bg-gray-300"
                 }`}
               ></span>
             ))}

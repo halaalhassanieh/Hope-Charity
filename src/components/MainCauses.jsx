@@ -113,7 +113,7 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search causes by title..."
-            className="w-full mb-4 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-orange/500"
+            className="w-full mb-4 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-red-wine"
           />
         )}
       </div>
@@ -157,7 +157,7 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
 
                 <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
                   <div
-                    className="bg-orange-500 h-3 rounded-full transition-all"
+                    className="bg-red-wine h-3 rounded-full transition-all"
                     style={{ width: `${progress}%` }}
                   ></div>
                 </div>
@@ -166,7 +166,7 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
               <div className="mt-3 flex justify-center items-center">
                 <button
                   onClick={() => setSelectedCause(cause)}
-                  className="w-full bg-black hover:bg-orange/600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition hover:bg-black/60"
+                  className="w-full bg-black hover:bg-red-wine text-white px-4 py-2 rounded-lg text-sm font-semibold transition hover:bg-black/60"
                 >
                   View Details
                 </button>
@@ -193,9 +193,9 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
               onClick={() => setCurrentPage(i + 1)}
               className={`px-3 py-1 rounded-full ${
                 currentPage === i + 1
-                  ? "bg-orange-500 text-white"
+                  ? "bg-red-wine text-white"
                   : "bg-gray-200"
-              } hover:bg-orange-400`}
+              } hover:bg-red-wine`}
             >
               {i + 1}
             </button>
@@ -249,7 +249,7 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
 
             <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
               <div
-                className="bg-orange-500 h-3 rounded-full transition-all"
+                className="bg-red-wine h-3 rounded-full transition-all"
                 style={{
                   width: `${
                     selectedCause.goal > 0
@@ -278,7 +278,7 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
                     }}
                     className={`px-4 py-2 rounded-lg font-semibold border ${
                       donation === amount
-                        ? "bg-orange-500 text-white border-orange-500"
+                        ? "bg-red-wine text-white border-red-wine"
                         : "bg-gray-100 text-black border-gray-400 hover:bg-gray-200"
                     }`}
                   >
@@ -295,12 +295,12 @@ const MainCauses = ({ cardsnumber, displayButton, displaySearch }) => {
                   setCustomAmount(e.target.value);
                 }}
                 placeholder="Or enter any amount you want here.."
-                className="w-full p-2 border border-gray-400 rounded-lg mb-4 focus:outline-none focus:border-orange/500"
+                className="w-full p-2 border border-gray-400 rounded-lg mb-4 focus:outline-none focus:border-red-wine"
               />
 
               <button
                 onClick={() => handleDonate(selectedCause._id)}
-                className="w-full bg-orange-500 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-orange-600 transition duration-200"
+                className="w-full bg-red-wine text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-red-wine transition duration-200"
               >
                 Donate
               </button>

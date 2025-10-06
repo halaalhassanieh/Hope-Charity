@@ -49,7 +49,7 @@ const CreateCauseForm = () => {
 
   return (
     <div className="w-full custom-tap:px-12 px-1 custom-tap:py-[65px] py-4 font-vietnam bg-gray/100">
-      <h2 className="text-2xl text-orange/500 font-bold mb-6 pb-4 border-b-4 border-black">
+      <h2 className="text-2xl text-red-wine font-bold mb-6 pb-4 border-b-4 border-black">
          Create New Cause
       </h2>
 
@@ -61,7 +61,7 @@ const CreateCauseForm = () => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-orange/500"
+            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-red-wine"
             placeholder="Enter cause title"
             required
           />
@@ -73,7 +73,7 @@ const CreateCauseForm = () => {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-orange/500 min-h-[120px]"
+            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-red-wine min-h-[120px]"
             placeholder="Write about your cause..."
             required
           ></textarea>
@@ -86,7 +86,7 @@ const CreateCauseForm = () => {
             type="number"
             value={goal}
             onChange={(e) => setGoal(e.target.value)}
-            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-orange/500"
+            className="w-full p-3 border border-gray/600 rounded-lg focus:outline-none focus:border-red-wine"
             placeholder="Enter fundraising goal"
             required
           />
@@ -122,7 +122,7 @@ const CreateCauseForm = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="bg-orange/500 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-orange-600 transition duration-200"
+          className="bg-red-wine text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-red-wine transition duration-200"
         >
           Create Cause
         </button>

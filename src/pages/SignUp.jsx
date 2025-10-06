@@ -41,7 +41,7 @@ const SignUp = () => {
   return (
     <div className="flex items-center justify-center bg-gray-100 font-vietnam py-4 px-4">
       <div className="custom-container w-full max-w-2xl bg-white p-9 rounded-2xl shadow-custom border border-gray-300">
-        <h2 className="text-4xl font-bold text-center text-orange-500 mb-8">
+        <h2 className="text-4xl font-bold text-center text-red-wine mb-8">
           Create Your Account
         </h2>
 
@@ -60,7 +60,7 @@ const SignUp = () => {
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               required
-              className="w-full px-6 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-orange-500"
+              className="w-full px-6 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-red-wine"
             />
           </div>
 
@@ -76,7 +76,7 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoComplete="email"
-              className="w-full px-5 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-orange-500"
+              className="w-full px-5 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-red-wine"
             />
           </div>
 
@@ -92,7 +92,7 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="new-password"
-              className="w-full px-5 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-orange-500"
+              className="w-full px-5 py-4 border border-gray-300 rounded-xl bg-white/60 text-black focus:outline-none focus:ring-4 focus:ring-red-wine"
             />
           </div>
 
@@ -100,7 +100,7 @@ const SignUp = () => {
             type="submit"
             disabled={loading}
             className={`w-full ${
-              loading ? "bg-orange-300" : "bg-orange-500 hover:bg-orange-600"
+              loading ? "bg-red-300" : "bg-red-wine hover:bg-red-wine"
             } text-white py-3 text-xl rounded-xl transition duration-200 font-semibold`}
           >
             {loading ? "Signing Up..." : "Sign Up"}
@@ -108,7 +108,7 @@ const SignUp = () => {
 
           <p className="text-md text-center text-gray-600 ">
             Already have an account?{" "}
-            <Link to="/login" className="text-orange-500 hover:underline font-medium">
+            <Link to="/login" className="text-red-wine hover:underline font-medium">
               Login
             </Link>
           </p>

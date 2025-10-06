@@ -9,9 +9,9 @@ export default {
       borderWidth: {
         1: "1px",
       },
-      
+     
       colors: {
-        "orange/500": "#FD7E14",
+        "red-wine": "#7B000B",
         "white/60": "#ffffff99",
         "black/60": "#00000099",
         "gray/600": "#6C757D",

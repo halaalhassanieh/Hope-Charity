@@ -6,7 +6,7 @@ const SelectedBlog = ({ title, image, description, createdAt, updatedAt }) => {
 
 
         <div >
-            <h3 className="text-2xl font-bold mb-4 text-orange/500">{title}</h3>
+            <h3 className="text-2xl font-bold mb-4 text-red-wine">{title}</h3>
             {image && (
                 <img
                     src={`${image}`}

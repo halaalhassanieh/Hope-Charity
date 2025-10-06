@@ -40,7 +40,7 @@ const AllBlogs = () => {
     if (!window.confirm('Are you sure you want to delete this blog?')) return;
 
     try {
-      await axios.delete(`/api/blog/${id}`, {
+      await axios.delete(`https://hope-lfey.onrender.com/api/blog/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBlogs(blogs.filter((blog) => blog._id !== id));
@@ -55,7 +55,7 @@ const AllBlogs = () => {
     if (!window.confirm('Are you sure you want to delete all blogs?')) return;
 
     try {
-      await axios.delete('/api/blog', {
+      await axios.delete('https://hope-lfey.onrender.com/api/blog', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBlogs([]);
@@ -83,7 +83,7 @@ const AllBlogs = () => {
         formData.append('image', updatedImage);
       }
 
-      await axios.put(`/api/blog/${editingBlog._id}`, formData, {
+      await axios.put(`https://hope-lfey.onrender.com/api/blog/${editingBlog._id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -122,7 +122,7 @@ const AllBlogs = () => {
     {/*div for headpage */}
      <div>
        <div className="flex justify-between items-center mb-4 pb-3 border-b-4 border-black">
-        <h2 className="text-2xl text-orange/500 font-bold"> All Blogs</h2>
+        <h2 className="text-2xl text-red-wine font-bold"> All Blogs</h2>
         <button
           onClick={handleDeleteAll}
           className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition"
@@ -136,7 +136,7 @@ const AllBlogs = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search blogs by title..."
-        className="w-full mb-4 p-2 text-sm border border-gray/600 rounded-lg focus:outline-none focus:border-orange/500"
+        className="w-full mb-4 p-2 text-sm border border-gray/600 rounded-lg focus:outline-none focus:border-red-wine"
       />
      </div> 
      
@@ -198,8 +198,8 @@ const AllBlogs = () => {
             <button
               key={i}
               onClick={() => setCurrentPage(i + 1)}
-              className={`px-3 py-1 rounded-full ${currentPage === i + 1 ? 'bg-orange-500 text-white' : 'bg-gray-200'
-                } hover:bg-orange-400`}
+              className={`px-3 py-1 rounded-full ${currentPage === i + 1 ? 'bg-red-wine text-white' : 'bg-gray-200'
+                } hover:bg-red-wine`}
             >
               {i + 1}
             </button>
@@ -257,7 +257,7 @@ const AllBlogs = () => {
               >Cancel</button>
               <button
                 onClick={handleUpdate}
-                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-orange-600"
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-red-wine"
               >Save</button>
             </div>
           </div>

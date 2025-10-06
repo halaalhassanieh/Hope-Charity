@@ -11,7 +11,7 @@ const ProfileCircle = () => {
     <div className="relative">
       <div
         onClick={toggleProfile}
-        className="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center cursor-pointer text-xl font-bold"
+        className="w-12 h-12 rounded-full bg-red-wine text-white flex items-center justify-center cursor-pointer text-xl font-bold"
         title="Profile"
       >
         {localStorage.getItem("email")?.[0]?.toUpperCase() || "U"}

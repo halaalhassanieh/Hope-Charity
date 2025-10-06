@@ -17,7 +17,7 @@ const ProfileModal = ({ onClose }) => {
    // function to get user info 
  
 useEffect(() => {
-  axios.get(`/api/users/${id}`, {
+  axios.get(`https://hope-lfey.onrender.com/api/users/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((res) => {
@@ -83,7 +83,7 @@ useEffect(() => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1 text-orange/500">Request Wallet Recharge</label>
+          <label className="block text-sm font-medium mb-1 text-red-wine">Request Wallet Recharge</label>
           <input
             type="number"
             value={amount}

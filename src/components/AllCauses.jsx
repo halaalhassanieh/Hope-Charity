@@ -33,7 +33,7 @@ const AllCauses = () => {
     if (!window.confirm("Are you sure you want to delete this cause?")) return;
 
     try {
-      await axios.delete(`/api/cause/${id}`, {
+      await axios.delete(`https://hope-lfey.onrender.com/api/cause/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCauses(causes.filter((cause) => cause._id !== id));
@@ -51,7 +51,7 @@ const AllCauses = () => {
     }
 
     try {
-      await axios.post(`/api/cause/donate/${causeId}`, { amount }, {
+      await axios.post(`https://hope-lfey.onrender.com/api/cause/donate/${causeId}`, { amount }, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -97,7 +97,7 @@ const AllCauses = () => {
       {/* Header */}
       <div className="mt-3 mb-1">
         <div className="flex justify-between items-center mb-2 pb-3 border-b-4 border-black">
-          <h2 className="text-2xl text-orange/500 font-bold"> All Causes</h2>
+          <h2 className="text-2xl text-red-wine font-bold"> All Causes</h2>
         </div>
 
         <input
@@ -105,7 +105,7 @@ const AllCauses = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search causes by title..."
-          className="w-full mb-2 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-orange/500"
+          className="w-full mb-2 p-2 text-sm border border-gray-600 rounded-lg focus:outline-none focus:border-red-wine"
         />
       </div>
 
@@ -138,7 +138,7 @@ const AllCauses = () => {
 
                 <div className="w-full bg-gray-200 rounded-full h-3 mb-1">
                   <div
-                    className="bg-orange-500 h-3 rounded-full transition-all"
+                    className="bg-red-wine h-3 rounded-full transition-all"
                     style={{ width: `${progress}%` }}
                   ></div>
                 </div>
@@ -147,7 +147,7 @@ const AllCauses = () => {
               <div className="mt-3 flex justify-between">
                 <button
                   onClick={() => setSelectedCause(cause)}
-                  className="bg-black hover:bg-orange/600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
+                  className="bg-black hover:bg-red-wine text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
                 >
                   View Details
                 </button>
@@ -179,8 +179,8 @@ const AllCauses = () => {
               key={i}
               onClick={() => setCurrentPage(i + 1)}
               className={`px-3 py-1 rounded-full ${
-                currentPage === i + 1 ? "bg-orange-500 text-white" : "bg-gray-200"
-              } hover:bg-orange-400`}
+                currentPage === i + 1 ? "bg-red-wine text-white" : "bg-gray-200"
+              } hover:bg-red-wine`}
             >
               {i + 1}
             </button>
@@ -226,7 +226,7 @@ const AllCauses = () => {
 
             <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
               <div
-                className="bg-orange-500 h-3 rounded-full transition-all"
+                className="bg-red-wine h-3 rounded-full transition-all"
                 style={{
                   width: `${
                     selectedCause.goal > 0
@@ -250,7 +250,7 @@ const AllCauses = () => {
                     }}
                     className={`px-4 py-2 rounded-lg font-semibold border ${
                       donation === amount
-                        ? "bg-orange-500 text-white border-orange-500"
+                        ? "bg-red-wine text-white border-red-wine"
                         : "bg-gray-100 text-black border-gray-400 hover:bg-gray-200"
                     }`}
                   >
@@ -267,12 +267,12 @@ const AllCauses = () => {
                   setCustomAmount(e.target.value);
                 }}
                 placeholder="Or enter any amount you want here.."
-                className="w-full p-2 border border-gray-400 rounded-lg mb-4 focus:outline-none focus:border-orange/500"
+                className="w-full p-2 border border-gray-400 rounded-lg mb-4 focus:outline-none focus:border-red-wine"
               />
 
               <button
                 onClick={() => handleDonate(selectedCause._id)}
-                className="w-full bg-orange-500 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-orange-600 transition duration-200"
+                className="w-full bg-red-wine text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-red-wine transition duration-200"
               >
                 Donate
               </button>
